@@ -15,14 +15,13 @@ function convertToObject(sourceString) {
 
   const result = sourceString.split(';').filter((item) => item.trim() !== '');
 
-  for (let i = 0; i < result.length; i++) {
-    const item = result[i];
+  result.forEach((item) => {
     const [key, value] = item.split(':');
     const cleanKey = key.trim();
     const cleanValue = value.trim();
 
     cssValue[cleanKey] = cleanValue;
-  }
+  });
 
   return cssValue;
 }
